@@ -12,6 +12,7 @@ import fruitcatcher.Player;
 public class FruitCatcher extends GameEngine {
     
 	private Player player;
+	private Fruit fruit;
 	
 	// This line makes it easier to reference your images.
     public static String MEDIA_URL = "src/main/java/fruitcatcher/media/";
@@ -30,6 +31,9 @@ public class FruitCatcher extends GameEngine {
         // in a separate method instead of making the update so large.
         player = new Player(this);
         addGameObject(player, 200, 200);
+        
+        fruit = new Fruit(this);
+        addGameObject(fruit, 400, 200);
         
         //spawn = new DiscSpawner(this, 1);
         
