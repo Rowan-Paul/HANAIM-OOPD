@@ -13,6 +13,7 @@ public class FruitCatcher extends GameEngine {
     
 	private Player player;
 	private Fruit fruit;
+	private FallingObjectSpawner spawner;
 	
 	// This line makes it easier to reference your images.
     public static String MEDIA_URL = "src/main/java/fruitcatcher/media/";
@@ -32,10 +33,10 @@ public class FruitCatcher extends GameEngine {
         player = new Player(this);
         addGameObject(player, 200, 200);
         
-        fruit = new Fruit(this);
+        fruit = new Fruit(this, "apple.png");
         addGameObject(fruit, 500, 100);
         
-        //spawn = new DiscSpawner(this, 1);
+        spawner = new FallingObjectSpawner(this, 1);
         
         View view = new View(worldWidth, worldHeight);
 
@@ -54,7 +55,7 @@ public class FruitCatcher extends GameEngine {
     
     private void initializeTileMap() {
         // Load Sprites
-        Sprite floorSprite = new Sprite(FruitCatcher.MEDIA_URL.concat("grassMid.png"));
+        Sprite floorSprite = new Sprite(FruitCatcher.MEDIA_URL.concat("grass.png"));
         // Create tile types with the right Tile class and sprite
         TileType<FloorTile> floorTileType = new TileType<>(FloorTile.class, floorSprite);
         @SuppressWarnings("rawtypes")

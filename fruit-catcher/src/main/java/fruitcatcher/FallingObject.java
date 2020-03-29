@@ -10,8 +10,8 @@ public abstract class FallingObject extends SpriteObject implements ICollidableW
 
 	private int speed;
 
-	public FallingObject(FruitCatcher fruitCatcher) {
-		super(new Sprite(FruitCatcher.MEDIA_URL.concat("apple.png")));
+	public FallingObject(FruitCatcher fruitCatcher, String fruitObject) {
+		super(new Sprite(FruitCatcher.MEDIA_URL.concat(fruitObject)));
 		this.fruitCatcher = fruitCatcher;
 		this.speed = 1;
 	}

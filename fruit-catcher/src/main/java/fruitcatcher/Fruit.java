@@ -9,22 +9,12 @@ public class Fruit extends FallingObject {
 	
 	private Random random;
 
-	public Fruit(FruitCatcher fruitCatcher) {
+	public Fruit(FruitCatcher fruitCatcher, String fruitObject) {
 		// Use `.concat ()` to string 2 strings together.
 		// The method returned a new String.
-		super(fruitCatcher);
+		super(fruitCatcher, fruitObject);
 		random = new Random();
 	}
-	
-//	private String generateFruitObject() {
-//		int randomNumber;
-//		String fruit;
-//		randomNumber = random.nextInt(4);
-//		
-//		if(randomNumber == 0) {
-//			fruit = "apple.png";
-//		}
-//	}
 
 	// @Override
 	public void gameObjectCollisionOccurred(List<GameObject> collidedGameObjects) {
