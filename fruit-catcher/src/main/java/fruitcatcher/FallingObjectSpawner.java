@@ -67,8 +67,4 @@ public class FallingObjectSpawner implements IAlarmListener {
 		startAlarm();
 	}
 
-	public void setObjectsPerSecond(int objectsPerSecond) {
-		this.objectsPerSecond = objectsPerSecond;
-	}
-
 }

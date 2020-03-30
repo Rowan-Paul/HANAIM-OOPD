@@ -21,7 +21,7 @@ public class Player extends SpriteObject implements ICollidableWithTiles {
 		super(new Sprite(FruitCatcher.MEDIA_URL.concat("playerStanding.png")));
 		this.fruitCatcher = fruitCatcher;
 		setGravity(0.2f);
-		this.speed = 5;
+		this.speed = 6;
 	}
 
 	@Override
@@ -35,7 +35,6 @@ public class Player extends SpriteObject implements ICollidableWithTiles {
 			setxSpeed(0);
 			setX(fruitCatcher.width - size);
 		}
-
 	}
 
 	@Override
@@ -69,5 +68,5 @@ public class Player extends SpriteObject implements ICollidableWithTiles {
 	public void setSpeed(int speed) {
 		this.speed = speed;
 	}
-	
+
 }

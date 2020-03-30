@@ -30,7 +30,7 @@ public class FruitCatcher extends GameEngine {
         // of course it is best to add new game objects
         // in a separate method instead of making the update so large.
         player = new Player(this);
-        addGameObject(player, 200, 200);
+        addGameObject(getPlayer(), 200, 200);
         
         fruit = new Fruit(this, "apple.png");
         addGameObject(fruit, 500, 100);
@@ -74,6 +74,11 @@ public class FruitCatcher extends GameEngine {
         };
         tileMap = new TileMap(tileSize, tileTypes, tilesMap);
     }
+
+	public Player getPlayer() {
+		return player;
+	}
+
     
 	/*
 	 * private void initializeSound() { backgroundMusic = new Sound(this,
