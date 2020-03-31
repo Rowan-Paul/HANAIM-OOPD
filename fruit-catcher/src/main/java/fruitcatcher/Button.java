@@ -4,6 +4,10 @@ import nl.han.ica.oopg.objects.GameObject;
 import nl.han.ica.oopg.userinput.IMouseInput;
 import processing.core.PGraphics;
 
+/**
+ * @author Sjaak Kok
+ * @author Rowan Paul Flynn
+ */
 public abstract class Button extends GameObject implements IMouseInput {
 	
 	private String text;
@@ -13,18 +17,30 @@ public abstract class Button extends GameObject implements IMouseInput {
 		this.text = text;
 	}
 
+	/**
+	 * Does nothing
+	 */
 	@Override
 	public void update() {
 		
 	}
 	
+	/**
+	 * Checks if mouse is clicked
+	 */
 	public void mouseClicked(int x, int y, int button) {
 		if (this.x - this.width / 2 < x && this.y - this.width / 2 < y && this.x + this.width / 2 > x && this.y + this.height / 2 > y)
 		doAction();
 	}
 	
+	/**
+	 * Does action
+	 */
 	public abstract void doAction();
 
+	/**
+	 * Draws button
+	 */
 	@Override
 	public void draw(PGraphics g) {
 		g.fill(9, 130, 55);

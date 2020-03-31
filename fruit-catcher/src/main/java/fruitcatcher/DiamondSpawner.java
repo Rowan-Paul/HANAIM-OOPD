@@ -5,6 +5,10 @@ import java.util.Random;
 import nl.han.ica.oopg.alarm.Alarm;
 import nl.han.ica.oopg.alarm.IAlarmListener;
 
+/**
+ * @author Sjaak Kok
+ * @author Rowan Paul Flynn
+ */
 public class DiamondSpawner implements IAlarmListener {
 
 	private FruitCatcher fruitCatcher;
@@ -12,6 +16,11 @@ public class DiamondSpawner implements IAlarmListener {
 	private double newDiamondWait;
 	private boolean stopAlarm = false;
 
+	/**
+	 * Set variables, start alarm
+	 * @param fruitCatcher Refrence to package
+	 * @param newDiamondWait Create new diamond
+	 */
 	public DiamondSpawner(FruitCatcher fruitCatcher, double newDiamondWait) {
 		this.fruitCatcher = fruitCatcher;
 		this.random = new Random();
@@ -19,6 +28,9 @@ public class DiamondSpawner implements IAlarmListener {
 		startAlarm();
 	}
 
+	/**
+	 * Spawns new diamond if alarm isn't off
+	 */
 	public void startAlarm() {
 		if (!stopAlarm) {
 			Alarm alarm = new Alarm("New Diamond", newDiamondWait);
@@ -27,6 +39,10 @@ public class DiamondSpawner implements IAlarmListener {
 		}
 	}
 
+	/**
+	 * Spawns diamond in the oppposite
+	 * area of the screen than the player
+	 */
 	@Override
 	public void triggerAlarm(String alarmName) {
 		Diamond diamond = new Diamond(fruitCatcher);
@@ -38,6 +54,10 @@ public class DiamondSpawner implements IAlarmListener {
 		startAlarm();
 	}
 
+	/**
+	 * Stops alarm
+	 * @param stopAlarm Which alarm
+	 */
 	public void setStopAlarm(boolean stopAlarm) {
 		this.stopAlarm = stopAlarm;
 	}

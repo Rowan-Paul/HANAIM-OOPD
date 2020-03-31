@@ -14,6 +14,10 @@ import nl.han.ica.oopg.objects.Sprite;
 import nl.han.ica.oopg.objects.SpriteObject;
 import processing.core.PVector;
 
+/**
+ * @author Sjaak Kok
+ * @author Rowan Paul Flynn
+ */
 public class Diamond extends SpriteObject implements ICollidableWithTiles, ICollidableWithGameObjects, IAlarmListener {
 
 	private FruitCatcher fruitCatcher;
@@ -21,6 +25,11 @@ public class Diamond extends SpriteObject implements ICollidableWithTiles, IColl
 	private final int HEIGHT = 66;
 	private final int WIDTH = 66;
 
+	/**
+	 * Adds sprite for diamond, set gravity, 
+	 * height, width and starts alarm
+	 * @param fruitCatcher Refrence to package
+	 */
 	public Diamond(FruitCatcher fruitCatcher) {
 		super(new Sprite(FruitCatcher.MEDIA_URL.concat("diamond.png")));
 		this.fruitCatcher = fruitCatcher;
@@ -30,15 +39,26 @@ public class Diamond extends SpriteObject implements ICollidableWithTiles, IColl
 		startAlarm();
 	}
 
+	/**
+	 * Does nothing
+	 */
 	@Override
 	public void update() {
 
 	}
 
+	/**
+	 * Does action
+	 * in this case: increase points by 10
+	 */
 	private void doAction() {
 		fruitCatcher.increasePoints(10);
 	}
 
+	/**
+	 * When a player collids with object
+	 * do action and remove object
+	 */
 	@Override
 	public void gameObjectCollisionOccurred(List<GameObject> collidedGameObjects) {
 		for (GameObject go : collidedGameObjects) {
@@ -49,6 +69,9 @@ public class Diamond extends SpriteObject implements ICollidableWithTiles, IColl
 		}
 	}
 
+	/**
+	 * When hitting the ground, stay there
+	 */
 	@Override
 	public void tileCollisionOccurred(List<CollidedTile> collidedTiles) {
 		PVector vector;
@@ -62,12 +85,18 @@ public class Diamond extends SpriteObject implements ICollidableWithTiles, IColl
 		}
 	}
 
+	/**
+	 * Start alarm
+	 */
 	private void startAlarm() {
 		Alarm alarm = new Alarm("Diamond", 3);
 		alarm.addTarget(this);
 		alarm.start();
 	}
 
+	/**
+	 * Trigger alarm and remove object
+	 */
 	@Override
 	public void triggerAlarm(String alarmName) {
 		fruitCatcher.deleteGameObject(this);
