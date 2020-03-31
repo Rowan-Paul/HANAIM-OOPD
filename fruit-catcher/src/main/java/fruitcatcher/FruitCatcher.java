@@ -25,6 +25,7 @@ public class FruitCatcher extends GameEngine {
 	private RestartButton restartButton;
 	private int buttons;
 	private IPersistence persistence;
+	private boolean endGame;
 
 	private int worldWidth = 800;
 	private int worldHeight = 600;
@@ -39,6 +40,8 @@ public class FruitCatcher extends GameEngine {
 	@Override
 	public void setupGame() {
 
+		endGame = false;
+
 		startButton = new StartButton(this, worldWidth / 2, worldHeight / 2, 200, 150);
 		addGameObject(startButton);
 
@@ -51,15 +54,20 @@ public class FruitCatcher extends GameEngine {
 		initializeTileMap();
 		createDashboard(worldWidth, 26);
 		initializePersistence();
+		// initializeSound();
 	}
 
 	@Override
 	public void update() {
 		if (droppedFruits == 3) {
 			if (buttons == 0) {
+				endGame = true;
 				endGame();
+				buttons++;
 			}
-			buttons++;
+			if (buttons > 1) {
+				buttons = 1;
+			}
 		}
 		System.out.println(buttons);
 	}
@@ -104,8 +112,10 @@ public class FruitCatcher extends GameEngine {
 	}
 
 	public void restartPlaying() {
+		endGame = false;
+
 		FallingObject.setSpeed(1);
-		
+
 		player = new Player(this);
 		addGameObject(getPlayer(), 200, 500);
 
@@ -120,6 +130,7 @@ public class FruitCatcher extends GameEngine {
 
 		this.highscore = Integer.parseInt(persistence.loadDataString());
 		refreshDashboardText();
+		buttons = 0;
 	}
 
 	public void endGame() {
@@ -141,8 +152,10 @@ public class FruitCatcher extends GameEngine {
 	}
 
 	public void increaseFruitsDropped() {
-		this.droppedFruits++;
-		refreshDashboardText();
+		if (!endGame) {
+			this.droppedFruits++;
+			refreshDashboardText();
+		}
 	}
 
 	private void initializePersistence() {
@@ -172,5 +185,10 @@ public class FruitCatcher extends GameEngine {
 	public void setDroppedFruits(int droppedFruits) {
 		this.droppedFruits = droppedFruits;
 	}
+
+	/*
+	 * private void initializeSound() { backgroundMusic = new Sound(this,
+	 * MEDIA_URL.concat("jump_08.mp3")); backgroundMusic.loop(-1); }
+	 */
 
 }
