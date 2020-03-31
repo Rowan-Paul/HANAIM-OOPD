@@ -6,7 +6,6 @@ import nl.han.ica.oopg.engine.GameEngine;
 import nl.han.ica.oopg.objects.Sprite;
 import nl.han.ica.oopg.persistence.FilePersistence;
 import nl.han.ica.oopg.persistence.IPersistence;
-import nl.han.ica.oopg.sound.Sound;
 import nl.han.ica.oopg.tile.TileMap;
 import nl.han.ica.oopg.tile.TileType;
 import nl.han.ica.oopg.view.View;
@@ -53,7 +52,6 @@ public class FruitCatcher extends GameEngine {
 		initializeTileMap();
 		createDashboard(worldWidth, 26);
 		initializePersistence();
-		// initializeSound();
 	}
 
 	@Override
@@ -183,9 +181,5 @@ public class FruitCatcher extends GameEngine {
 		this.endGame = endGame;
 	}
 
-	/*
-	 * private void initializeSound() { backgroundMusic = new Sound(this,
-	 * MEDIA_URL.concat("jump_08.mp3")); backgroundMusic.loop(-1); }
-	 */
 
 }
