@@ -6,12 +6,24 @@ import nl.han.ica.oopg.alarm.Alarm;
 import nl.han.ica.oopg.alarm.IAlarmListener;
 import nl.han.ica.oopg.objects.GameObject;
 
+/**
+ * @author Sjaak Kok
+ * @author Rowan Paul Flynn
+ */
 public class Horse extends FallingObject implements IAlarmListener {
 
+	/**
+	 * Adds horse image
+	 * @param fruitCatcher
+	 */
 	public Horse(FruitCatcher fruitCatcher) {
 		super(fruitCatcher, "horse.png");
 	}
 	
+	/**
+	 * Does action
+	 * in this case: decrease speed
+	 */
 	@Override
 	public void doAction() {
 		fruitCatcher.getPlayer().setSpeed(3);
@@ -19,6 +31,10 @@ public class Horse extends FallingObject implements IAlarmListener {
 		startAlarm();
 	}
 
+	/**
+	 * Checks if object collides with player,
+	 * does action and deletes object
+	 */
 	@Override
 	public void gameObjectCollisionOccurred(List<GameObject> collidedGameObjects) {
 		for (GameObject go : collidedGameObjects) {
@@ -29,6 +45,9 @@ public class Horse extends FallingObject implements IAlarmListener {
 		}
 	}
 	
+	/**
+	 * Starts alarm
+	 */
 	private void startAlarm() {
 		Alarm alarm = new Alarm("Horse", 5);
 		alarm.addTarget(this);

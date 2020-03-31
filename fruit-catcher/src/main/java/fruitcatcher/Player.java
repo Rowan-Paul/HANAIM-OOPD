@@ -10,12 +10,21 @@ import nl.han.ica.oopg.objects.AnimatedSpriteObject;
 import nl.han.ica.oopg.objects.Sprite;
 import processing.core.PVector;
 
+/**
+ * @author Sjaak Kok
+ * @author Rowan Paul Flynn
+ */
 public class Player extends AnimatedSpriteObject implements ICollidableWithTiles {
 
 	private FruitCatcher fruitCatcher;
 	private int speed;
 	private boolean horseHit;
 
+	/**
+	 * Adds player sprite, speed, friction,
+	 * gravity and frameindex
+	 * @param fruitCatcher
+	 */
 	public Player(FruitCatcher fruitCatcher) {
 		super(new Sprite(FruitCatcher.MEDIA_URL.concat("player.png")), 3);
 		this.fruitCatcher = fruitCatcher;
@@ -26,6 +35,9 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 		setCurrentFrameIndex(1);
 	}
 
+	/**
+	 * Sets player speed
+	 */
 	@Override
 	public void update() {
 		if (getX() <= 0) {
@@ -43,6 +55,10 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 		}
 	}
 
+	/**
+	 * Checks if any keys are pressed
+	 * and changes direction speed
+	 */
 	@Override
 	public void keyPressed(int keyCode, char key) {
 		if (keyCode == LEFT) {
@@ -55,6 +71,9 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 		}
 	}
 
+	/**
+	 * Makes sure Player doesn't fall out of the world
+	 */
 	@Override
 	public void tileCollisionOccurred(List<CollidedTile> collidedTiles) {
 		PVector vector;
@@ -68,6 +87,11 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 		}
 	}
 	
+	/**
+	 * Gives the player position
+	 * @return True if player is on the left,
+	 * false if player is on the right of the screen
+	 */
 	public boolean isPlayerOnTheLeft() {
 		boolean isPlayerOnTheLeft = false;
 		if(getX() < fruitCatcher.getWidth() / 2) {
@@ -78,10 +102,19 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 		return isPlayerOnTheLeft;
 	}
 
+	/**
+	 * Sets player speed
+	 * @param speed Sets speed
+	 */
 	public void setSpeed(int speed) {
 		this.speed = speed;
 	}
 
+	/**
+	 * Checks if the horse object is hit
+	 * @param horseHit True if the horse is hit,
+	 * false if not
+	 */
 	public void setHorseHit(boolean horseHit) {
 		this.horseHit = horseHit;
 	}

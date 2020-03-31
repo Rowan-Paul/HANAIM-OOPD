@@ -5,6 +5,10 @@ import java.util.Random;
 import nl.han.ica.oopg.alarm.Alarm;
 import nl.han.ica.oopg.alarm.IAlarmListener;
 
+/**
+ * @author Sjaak Kok
+ * @author Rowan Paul Flynn
+ */
 public class FallingObjectSpawner implements IAlarmListener {
 
 	private FruitCatcher fruitCatcher;
@@ -12,6 +16,12 @@ public class FallingObjectSpawner implements IAlarmListener {
 	private double newObjectWait;
 	private boolean stopAlarm;;
 
+	/**
+	 * Creates random number, starts alarm
+	 * and makes new object
+	 * @param fruitCatcher
+	 * @param newObjectWait The object in question
+	 */
 	public FallingObjectSpawner(FruitCatcher fruitCatcher, double newObjectWait) {
 		this.fruitCatcher = fruitCatcher;
 		this.random = new Random();
@@ -20,6 +30,10 @@ public class FallingObjectSpawner implements IAlarmListener {
 		startAlarm();
 	}
 
+	/**
+	 * Returns (random) image
+	 * @return Returns image path
+	 */
 	private String generateFruitObject() {
 		int randomNumber;
 		randomNumber = random.nextInt(4);
@@ -36,6 +50,9 @@ public class FallingObjectSpawner implements IAlarmListener {
 		return null;
 	}
 
+	/**
+	 * Generates random falling objects
+	 */
 	private void generateFallingObject() {
 		int randomNumber;
 		randomNumber = random.nextInt(10);
@@ -60,6 +77,9 @@ public class FallingObjectSpawner implements IAlarmListener {
 		}
 	}
 
+	/**
+	 * Starts alarm
+	 */
 	public void startAlarm() {
 		if (!stopAlarm) {
 			Alarm alarm = new Alarm("New Object", newObjectWait);
@@ -74,6 +94,10 @@ public class FallingObjectSpawner implements IAlarmListener {
 		startAlarm();
 	}
 
+	/**
+	 * Stops alarm
+	 * @param stopAlarm Which alarm should be stopped
+	 */
 	public void setStopAlarm(boolean stopAlarm) {
 		this.stopAlarm = stopAlarm;
 	}
