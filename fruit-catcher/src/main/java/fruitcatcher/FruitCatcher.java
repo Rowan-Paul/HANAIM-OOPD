@@ -55,12 +55,7 @@ public class FruitCatcher extends GameEngine {
 		startButton = new StartButton(this, WORLD_WIDTH / 2, WORLD_HEIGHT / 2, 200, 150);
 		addGameObject(startButton);
 
-		View view = new View(WORLD_WIDTH, WORLD_HEIGHT);
-		view.setBackground(loadImage(FruitCatcher.MEDIA_URL.concat("background.png")));
-		
-		setView(view);
-		size(WORLD_WIDTH, WORLD_HEIGHT);
-		
+		createViewWithoutViewport();
 		initializeTileMap();
 		createDashboard(WORLD_WIDTH, 26);
 		initializePersistence();
@@ -106,6 +101,17 @@ public class FruitCatcher extends GameEngine {
 				};
 		tileMap = new TileMap(tileSize, tileTypes, tilesMap);
 	}
+	
+	/**
+	 * Creates the view.
+	 */
+	private void createViewWithoutViewport() {
+		View view = new View(WORLD_WIDTH, WORLD_HEIGHT);
+		view.setBackground(loadImage(FruitCatcher.MEDIA_URL.concat("background.png")));
+		
+		setView(view);
+		size(WORLD_WIDTH, WORLD_HEIGHT);
+    }
 
 	/**
 	 * Creates dashboard for points, highscore and dropped Fruit
