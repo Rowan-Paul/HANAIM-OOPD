@@ -69,7 +69,6 @@ public class FruitCatcher extends GameEngine {
 				buttons = 1;
 			}
 		}
-		System.out.println(buttons);
 	}
 
 	private void initializeTileMap() {
@@ -78,7 +77,7 @@ public class FruitCatcher extends GameEngine {
 		@SuppressWarnings("rawtypes")
 		TileType[] tileTypes = { floorTileType };
 		int tileSize = 64;
-		int tilesMap[][] = { { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 },
+		int tilesMap[][] = { 
 				{ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 },
 				{ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 },
 				{ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 },
@@ -86,7 +85,10 @@ public class FruitCatcher extends GameEngine {
 				{ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 },
 				{ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 },
 				{ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 },
-				{ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 }, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, }, };
+				{ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 },
+				{ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 }, 
+				{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, }, 
+				};
 		tileMap = new TileMap(tileSize, tileTypes, tilesMap);
 	}
 
@@ -170,16 +172,8 @@ public class FruitCatcher extends GameEngine {
 		return player;
 	}
 
-	public int getPoints() {
-		return points;
-	}
-
 	public void setPoints(int points) {
 		this.points = points;
-	}
-
-	public int getDroppedFruits() {
-		return droppedFruits;
 	}
 
 	public void setDroppedFruits(int droppedFruits) {
