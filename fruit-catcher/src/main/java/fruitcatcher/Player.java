@@ -14,15 +14,16 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 
 	private FruitCatcher fruitCatcher;
 	private int speed;
-	private boolean horseHit = false;
+	private boolean horseHit;
 
 	public Player(FruitCatcher fruitCatcher) {
 		super(new Sprite(FruitCatcher.MEDIA_URL.concat("player.png")), 3);
 		this.fruitCatcher = fruitCatcher;
-		setCurrentFrameIndex(1);
-		setGravity(0.2f);
+		horseHit = false;
 		speed = 7;
 		setFriction(0.05f);
+		setGravity(0.2f);
+		setCurrentFrameIndex(1);
 	}
 
 	@Override
@@ -32,9 +33,9 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 			setX(0);
 		}
 
-		if (getX() >= fruitCatcher.width - getWidth()) {
+		if (getX() >= fruitCatcher.getWidth() - width) {
 			setxSpeed(0);
-			setX(fruitCatcher.width - getWidth());
+			setX(fruitCatcher.getWidth() - width);
 		}
 
 		if (getSpeed() < 4.5 && horseHit == false) {
@@ -44,11 +45,11 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 
 	@Override
 	public void keyPressed(int keyCode, char key) {
-		if (keyCode == fruitCatcher.LEFT) {
+		if (keyCode == LEFT) {
 			setDirectionSpeed(270, speed);
 			setCurrentFrameIndex(0);
 		}
-		if (keyCode == fruitCatcher.RIGHT) {
+		if (keyCode == RIGHT) {
 			setDirectionSpeed(90, speed);
 			setCurrentFrameIndex(2);
 		}
@@ -61,7 +62,7 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 			if (ct.getTile() instanceof FloorTile) {
 				if (ct.getCollisionSide() == CollisionSide.TOP) {
 					vector = fruitCatcher.getTileMap().getTilePixelLocation(ct.getTile());
-					setY(vector.y - getHeight());
+					setY(vector.y - height);
 				}
 			}
 		}
@@ -69,9 +70,9 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 	
 	public boolean isPlayerOnTheLeft() {
 		boolean isPlayerOnTheLeft = false;
-		if(getX() < fruitCatcher.width / 2) {
+		if(getX() < fruitCatcher.getWidth() / 2) {
 			isPlayerOnTheLeft = true;
-		} else if(getX() > fruitCatcher.displayWidth / 2) {
+		} else if(getX() > fruitCatcher.getWidth() / 2) {
 			isPlayerOnTheLeft = false;
 		}
 		return isPlayerOnTheLeft;
@@ -81,7 +82,7 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 		this.speed = speed;
 	}
 
-	public void setTrainHit(boolean horseHit) {
+	public void setHorseHit(boolean horseHit) {
 		this.horseHit = horseHit;
 	}
 

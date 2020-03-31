@@ -11,7 +11,7 @@ public class RestartButton extends Button {
 
 	@Override
 	public void doAction() {
-		fruitCatcher.deleteGameObject(this);
 		fruitCatcher.restartPlaying();
+		fruitCatcher.deleteGameObject(this);
 	}
 }

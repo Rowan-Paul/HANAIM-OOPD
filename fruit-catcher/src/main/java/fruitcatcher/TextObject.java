@@ -3,7 +3,6 @@ package fruitcatcher;
 import nl.han.ica.oopg.objects.GameObject;
 import processing.core.PGraphics;
 
-
 public class TextObject extends GameObject {
 
     private String text;
@@ -24,8 +23,8 @@ public class TextObject extends GameObject {
     @Override
     public void draw(PGraphics g) {
     	g.background(9, 130, 55);
-        g.textAlign(g.LEFT, g.TOP);
+        g.textAlign(LEFT, TOP);
         g.textSize(20);
-        g.text(text, getX(), getY());
+        g.text(text, x, y);
     }
 }

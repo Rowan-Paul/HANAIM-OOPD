@@ -12,10 +12,10 @@ public class FallingObjectSpawner implements IAlarmListener {
 	private double newObjectWait;
 	private boolean stopAlarm;;
 
-	public FallingObjectSpawner(FruitCatcher fruitCatcher) {
+	public FallingObjectSpawner(FruitCatcher fruitCatcher, double newObjectWait) {
 		this.fruitCatcher = fruitCatcher;
 		this.random = new Random();
-		this.newObjectWait = 1;
+		this.newObjectWait = newObjectWait;
 		this.stopAlarm = false;
 		startAlarm();
 	}
@@ -43,19 +43,19 @@ public class FallingObjectSpawner implements IAlarmListener {
 		if (randomNumber == 0 || randomNumber == 1 || randomNumber == 3 || randomNumber == 5 || randomNumber == 6
 				|| randomNumber == 8) {
 			Fruit fruit = new Fruit(fruitCatcher, generateFruitObject());
-			fruitCatcher.addGameObject(fruit, random.nextInt(fruitCatcher.width - (int) fruit.getWidth()),
+			fruitCatcher.addGameObject(fruit, random.nextInt(fruitCatcher.getWidth() - (int) fruit.getWidth()),
 					-fruit.getWidth());
 		} else if (randomNumber == 4) {
 			Horse horse = new Horse(fruitCatcher);
-			fruitCatcher.addGameObject(horse, random.nextInt(fruitCatcher.width - (int) horse.getWidth()),
+			fruitCatcher.addGameObject(horse, random.nextInt(fruitCatcher.getWidth() - (int) horse.getWidth()),
 					-horse.getWidth());
 		} else if (randomNumber == 7) {
 			Train train = new Train(fruitCatcher);
-			fruitCatcher.addGameObject(train, random.nextInt(fruitCatcher.width - (int) train.getWidth()),
+			fruitCatcher.addGameObject(train, random.nextInt(fruitCatcher.getWidth() - (int) train.getWidth()),
 					-train.getWidth());
 		} else if (randomNumber == 9) {
 			Bomb bomb = new Bomb(fruitCatcher);
-			fruitCatcher.addGameObject(bomb, random.nextInt(fruitCatcher.width - (int) bomb.getWidth()),
+			fruitCatcher.addGameObject(bomb, random.nextInt(fruitCatcher.getWidth() - (int) bomb.getWidth()),
 					-bomb.getWidth());
 		}
 	}

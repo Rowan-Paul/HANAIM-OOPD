@@ -12,10 +12,10 @@ public class DiamondSpawner implements IAlarmListener {
 	private double newDiamondWait;
 	private boolean stopAlarm = false;
 
-	public DiamondSpawner(FruitCatcher fruitCatcher) {
+	public DiamondSpawner(FruitCatcher fruitCatcher, double newDiamondWait) {
 		this.fruitCatcher = fruitCatcher;
 		this.random = new Random();
-		this.newDiamondWait = 10;
+		this.newDiamondWait = newDiamondWait;
 		startAlarm();
 	}
 
@@ -31,9 +31,9 @@ public class DiamondSpawner implements IAlarmListener {
 	public void triggerAlarm(String alarmName) {
 		Diamond diamond = new Diamond(fruitCatcher);
 		if (fruitCatcher.getPlayer().isPlayerOnTheLeft()) {
-			fruitCatcher.addGameObject(diamond, fruitCatcher.width / 2 + random.nextInt(fruitCatcher.width / 2 - (int) diamond.getWidth()), 500);
+			fruitCatcher.addGameObject(diamond, fruitCatcher.getWidth() / 2 + random.nextInt(fruitCatcher.width / 2 - (int) diamond.getWidth()), 500);
 		} else if (!fruitCatcher.getPlayer().isPlayerOnTheLeft()) {
-			fruitCatcher.addGameObject(diamond, random.nextInt(fruitCatcher.width / 2 - (int) diamond.getWidth()), 500);
+			fruitCatcher.addGameObject(diamond, random.nextInt(fruitCatcher.getWidth() / 2 - (int) diamond.getWidth()), 500);
 		}
 		startAlarm();
 	}

@@ -12,5 +12,4 @@ public class FloorTile extends Tile {
 		super(sprite);
 	}
 	
-	
 }

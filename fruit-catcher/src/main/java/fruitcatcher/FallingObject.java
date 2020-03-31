@@ -8,16 +8,17 @@ public abstract class FallingObject extends SpriteObject implements ICollidableW
 
 	protected FruitCatcher fruitCatcher;
 
-	private static int speed = 1;
+	private static int speed;
 
 	public FallingObject(FruitCatcher fruitCatcher, String object) {
 		super(new Sprite(FruitCatcher.MEDIA_URL.concat(object)));
 		this.fruitCatcher = fruitCatcher;
+		FallingObject.speed = 1;
 	}
 
 	@Override
 	public void update() {
-		if (this.y > -getHeight() - 1) {
+		if (this.y > -this.height - 1) {
 			setDirectionSpeed(180, speed);
 		}
 		if (this.y > fruitCatcher.getHeight()) {

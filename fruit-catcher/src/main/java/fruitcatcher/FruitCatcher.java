@@ -11,6 +11,7 @@ import nl.han.ica.oopg.tile.TileType;
 import nl.han.ica.oopg.view.View;
 import fruitcatcher.Player;
 
+@SuppressWarnings("serial")
 public class FruitCatcher extends GameEngine {
 
 	private Player player;
@@ -26,8 +27,8 @@ public class FruitCatcher extends GameEngine {
 	private IPersistence persistence;
 	private boolean endGame;
 
-	private int worldWidth = 800;
-	private int worldHeight = 600;
+	private final int WORLD_WIDTH = 800;
+	private final int WORLD_HEIGHT = 600;
 
 	public static String MEDIA_URL = "src/main/java/fruitcatcher/media/";
 
@@ -40,17 +41,17 @@ public class FruitCatcher extends GameEngine {
 	public void setupGame() {
 		setEndGame(false);
 
-		startButton = new StartButton(this, worldWidth / 2, worldHeight / 2, 200, 150);
+		startButton = new StartButton(this, WORLD_WIDTH / 2, WORLD_HEIGHT / 2, 200, 150);
 		addGameObject(startButton);
 
-		View view = new View(worldWidth, worldHeight);
-
+		View view = new View(WORLD_WIDTH, WORLD_HEIGHT);
 		view.setBackground(loadImage(FruitCatcher.MEDIA_URL.concat("background.png")));
-
+		
 		setView(view);
-		size(worldWidth, worldHeight);
+		size(WORLD_WIDTH, WORLD_HEIGHT);
+		
 		initializeTileMap();
-		createDashboard(worldWidth, 26);
+		createDashboard(WORLD_WIDTH, 26);
 		initializePersistence();
 	}
 
@@ -101,13 +102,18 @@ public class FruitCatcher extends GameEngine {
 		dashboardText.setText("                        Points: " + points + "        High score: " + highscore
 				+ "        Dropped Fruit: " + droppedFruits);
 	}
+	
+	private void resetDashboardScores() {
+		setPoints(0);
+		setDroppedFruits(0);
+	}
 
 	public void startPlaying() {
 		player = new Player(this);
 		addGameObject(getPlayer(), 200, 500);
 
-		fallingObjectSpawner = new FallingObjectSpawner(this);
-		diamondSpawner = new DiamondSpawner(this);
+		fallingObjectSpawner = new FallingObjectSpawner(this, 1);
+		diamondSpawner = new DiamondSpawner(this, 10);
 	}
 
 	public void restartPlaying() {
@@ -124,8 +130,7 @@ public class FruitCatcher extends GameEngine {
 		diamondSpawner.setStopAlarm(false);
 		diamondSpawner.startAlarm();
 
-		setPoints(0);
-		setDroppedFruits(0);
+		resetDashboardScores();
 
 		this.highscore = Integer.parseInt(persistence.loadDataString());
 		refreshDashboardText();
@@ -137,12 +142,13 @@ public class FruitCatcher extends GameEngine {
 		FallingObject.setSpeed(5);
 		fallingObjectSpawner.setStopAlarm(true);
 		diamondSpawner.setStopAlarm(true);
-		restartButton = new RestartButton(this, worldWidth / 2, worldHeight / 2, 200, 150);
+		restartButton = new RestartButton(this, WORLD_WIDTH / 2, WORLD_HEIGHT / 2, 200, 150);
+		addGameObject(restartButton);
+		
 		if (this.points > this.highscore) {
 			persistence.saveData(Integer.toString(points));
 			refreshDashboardText();
 		}
-		addGameObject(restartButton);
 	}
 
 	public void increasePoints(int aantal) {
