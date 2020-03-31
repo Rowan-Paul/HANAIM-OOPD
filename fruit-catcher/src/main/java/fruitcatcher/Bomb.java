@@ -11,8 +11,8 @@ import nl.han.ica.oopg.objects.GameObject;
 public class Bomb extends FallingObject {
 	
 	/**
-	 * Adds bomb image
-	 * @param fruitCatcher
+	 * Constructor 
+	 * @param fruitCatcher reference to the game
 	 */
 	public Bomb(FruitCatcher fruitCatcher) {
 		super(fruitCatcher, "bomb.png");
@@ -29,8 +29,7 @@ public class Bomb extends FallingObject {
 	}
 
 	/**
-	 * When a player collides with object
-	 * doAction()
+	 * DoAction if the bomb collided with the player and remove the bomb object
 	 */
 	@Override
 	public void gameObjectCollisionOccurred(List<GameObject> collidedGameObjects) {

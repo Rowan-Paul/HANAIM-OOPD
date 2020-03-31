@@ -10,8 +10,8 @@ import nl.han.ica.oopg.tile.Tile;
  */
 public class FloorTile extends Tile {
 	/**
-	 * Adds sprite to floortile
-	 * @param sprite image to be drawn as a floor Tile.
+	 * Adds sprite to floor tile
+	 * @param sprite image to be drawn as a floor tile.
 	 */
 	public FloorTile(Sprite sprite) {
 		super(sprite);

@@ -26,9 +26,9 @@ public class Diamond extends SpriteObject implements ICollidableWithTiles, IColl
 	private final int WIDTH = 66;
 
 	/**
-	 * Adds sprite for diamond, set gravity, 
-	 * height, width and starts alarm
-	 * @param fruitCatcher
+	 * Constructor 
+	 * 
+	 * @param fruitCatcher reference to the game
 	 */
 	public Diamond(FruitCatcher fruitCatcher) {
 		super(new Sprite(FruitCatcher.MEDIA_URL.concat("diamond.png")));
@@ -48,16 +48,14 @@ public class Diamond extends SpriteObject implements ICollidableWithTiles, IColl
 	}
 
 	/**
-	 * Does action
-	 * in this case: increase points by 10
+	 * Increases the points by 10
 	 */
 	private void doAction() {
 		fruitCatcher.increasePoints(10);
 	}
 
 	/**
-	 * When a player collids with object
-	 * do action and remove object
+	 * DoAction if the diamond collided with the player and remove the diamond
 	 */
 	@Override
 	public void gameObjectCollisionOccurred(List<GameObject> collidedGameObjects) {
@@ -70,7 +68,7 @@ public class Diamond extends SpriteObject implements ICollidableWithTiles, IColl
 	}
 
 	/**
-	 * When hitting the ground, stay there
+	 * Keeps the diamond on the ground
 	 */
 	@Override
 	public void tileCollisionOccurred(List<CollidedTile> collidedTiles) {
@@ -86,7 +84,7 @@ public class Diamond extends SpriteObject implements ICollidableWithTiles, IColl
 	}
 
 	/**
-	 * Start alarm
+	 * Starts alarm
 	 */
 	private void startAlarm() {
 		Alarm alarm = new Alarm("Diamond", 3);
@@ -95,7 +93,7 @@ public class Diamond extends SpriteObject implements ICollidableWithTiles, IColl
 	}
 
 	/**
-	 * Trigger alarm and remove object
+	 * Removes object when alarm is triggered
 	 */
 	@Override
 	public void triggerAlarm(String alarmName) {

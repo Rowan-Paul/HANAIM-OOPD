@@ -12,7 +12,8 @@ public class TextObject extends GameObject {
     private String text;
 
     /**
-     * The text object
+     * Constructor
+     * 
      * @param text The text that should be displayed
      */
     public TextObject(String text) {
@@ -20,7 +21,7 @@ public class TextObject extends GameObject {
     }
 
     /**
-     * Sets txt
+     * Sets text
      * @param text The text that should be set
      */
     public void setText(String text) {

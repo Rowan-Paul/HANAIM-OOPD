@@ -13,8 +13,9 @@ import nl.han.ica.oopg.objects.GameObject;
 public class Train extends FallingObject implements IAlarmListener {
 
 	/**
-	 * Adds train image to object
-	 * @param fruitCatcher
+	 * Constructor
+	 * 
+	 * @param fruitCatcher reference to the game
 	 */
 	public Train(FruitCatcher fruitCatcher) {
 		super(fruitCatcher, "train.png");
@@ -32,8 +33,7 @@ public class Train extends FallingObject implements IAlarmListener {
 	}
 
 	/**
-	 * Checks if objects collides with player
-	 * and do action
+	 * DoAction if the train collided with the player and remove the train
 	 */
 	@Override
 	public void gameObjectCollisionOccurred(List<GameObject> collidedGameObjects) {

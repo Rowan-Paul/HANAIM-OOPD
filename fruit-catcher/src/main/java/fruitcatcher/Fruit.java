@@ -11,9 +11,10 @@ import nl.han.ica.oopg.objects.GameObject;
 public class Fruit extends FallingObject {
 	
 	/**
-	 * Creates object
-	 * @param fruitCatcher
-	 * @param fruitObject Specific object
+	 * Constructor
+	 * 
+	 * @param fruitCatcher reference to the game
+	 * @param fruitObject fruit object reference
 	 */
 	public Fruit(FruitCatcher fruitCatcher, String fruitObject) {
 		super(fruitCatcher, fruitObject);
@@ -29,8 +30,7 @@ public class Fruit extends FallingObject {
 	}
 
 	/**
-	 * When a player collides with object
-	 * do action and delete object
+	 * DoAction if the fruit collided with the player and remove the fruit object
 	 */
 	@Override
 	public void gameObjectCollisionOccurred(List<GameObject> collidedGameObjects) {

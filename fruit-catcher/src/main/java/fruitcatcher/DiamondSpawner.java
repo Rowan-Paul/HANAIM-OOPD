@@ -17,9 +17,10 @@ public class DiamondSpawner implements IAlarmListener {
 	private boolean stopAlarm = false;
 
 	/**
-	 * Set variables, start alarm
-	 * @param fruitCatcher
-	 * @param newDiamondWait
+	 * Constructor
+	 * 
+	 * @param fruitCatcher reference to the game
+	 * @param newDiamondWait the amount of you have to wait till a new diamond will spawn in seconds
 	 */
 	public DiamondSpawner(FruitCatcher fruitCatcher, double newDiamondWait) {
 		this.fruitCatcher = fruitCatcher;
@@ -40,8 +41,8 @@ public class DiamondSpawner implements IAlarmListener {
 	}
 
 	/**
-	 * Spawns diamond in the oppposite
-	 * area of the screen than the player
+	 * Spawns diamond in the opposite
+	 * area of the screen from the player
 	 */
 	@Override
 	public void triggerAlarm(String alarmName) {
@@ -55,8 +56,8 @@ public class DiamondSpawner implements IAlarmListener {
 	}
 
 	/**
-	 * Stops alarm
-	 * @param stopAlarm Which alarm
+	 * Sets alarm on or off
+	 * @param stopAlarm if alarm should be on stopAlarm is false
 	 */
 	public void setStopAlarm(boolean stopAlarm) {
 		this.stopAlarm = stopAlarm;

@@ -17,10 +17,10 @@ public class FallingObjectSpawner implements IAlarmListener {
 	private boolean stopAlarm;;
 
 	/**
-	 * Creates random number, starts alarm
-	 * and makes new object
-	 * @param fruitCatcher
-	 * @param newObjectWait The object in question
+	 * Constructor
+	 * 
+	 * @param fruitCatcher reference to the game
+	 * @param newObjectWait the amount of you have to wait till a new object will spawn in seconds
 	 */
 	public FallingObjectSpawner(FruitCatcher fruitCatcher, double newObjectWait) {
 		this.fruitCatcher = fruitCatcher;
@@ -31,7 +31,7 @@ public class FallingObjectSpawner implements IAlarmListener {
 	}
 
 	/**
-	 * Returns (random) image
+	 * Generates random fruit object
 	 * @return Returns image path
 	 */
 	private String generateFruitObject() {
@@ -87,7 +87,8 @@ public class FallingObjectSpawner implements IAlarmListener {
 			alarm.start();
 		}
 	}
-
+	
+	
 	@Override
 	public void triggerAlarm(String alarmName) {
 		generateFallingObject();
@@ -95,8 +96,8 @@ public class FallingObjectSpawner implements IAlarmListener {
 	}
 
 	/**
-	 * Stops alarm
-	 * @param stopAlarm Which alarm should be stopped
+	 * Sets alarm on or off
+	 * @param stopAlarm if alarm should be on stopAlarm is false
 	 */
 	public void setStopAlarm(boolean stopAlarm) {
 		this.stopAlarm = stopAlarm;

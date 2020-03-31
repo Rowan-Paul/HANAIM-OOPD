@@ -21,9 +21,9 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 	private boolean horseHit;
 
 	/**
-	 * Adds player sprite, speed, friction,
-	 * gravity and frameindex
-	 * @param fruitCatcher
+	 * Constructor
+	 * 
+	 * @param fruitCatcher reference to the game
 	 */
 	public Player(FruitCatcher fruitCatcher) {
 		super(new Sprite(FruitCatcher.MEDIA_URL.concat("player.png")), 3);
@@ -36,7 +36,7 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 	}
 
 	/**
-	 * Sets player speed
+	 * Prevents player from running out of the screen
 	 */
 	@Override
 	public void update() {
@@ -57,7 +57,7 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 
 	/**
 	 * Checks if any keys are pressed
-	 * and changes direction speed
+	 * and changes direction
 	 */
 	@Override
 	public void keyPressed(int keyCode, char key) {
@@ -103,7 +103,7 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 	}
 
 	/**
-	 * Sets player speed
+	 * Sets player movement speed
 	 * @param speed Sets speed
 	 */
 	public void setSpeed(int speed) {
@@ -111,7 +111,7 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 	}
 
 	/**
-	 * Checks if the horse object is hit
+	 * Checks if the horse object is hit by the player
 	 * @param horseHit True if the horse is hit,
 	 * false if not
 	 */

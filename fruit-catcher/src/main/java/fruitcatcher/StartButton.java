@@ -9,8 +9,9 @@ public class StartButton extends Button {
 	private FruitCatcher fruitCatcher;
 
 	/**
-	 * Creates start button
-	 * @param fruitCatcher
+	 * Constructor
+	 * 
+	 * @param fruitCatcher reference to the game
 	 * @param x The x coordinate of the button
 	 * @param y The y coordinate of the button
 	 * @param width The width of the button
@@ -23,7 +24,7 @@ public class StartButton extends Button {
 
 	/**
 	 * Does action
-	 * in this case: start the game and remove objects
+	 * in this case: start the game and remove the button
 	 */
 	@Override
 	public void doAction() {

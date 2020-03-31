@@ -26,7 +26,7 @@ public abstract class Button extends GameObject implements IMouseInput {
 	}
 	
 	/**
-	 * Checks if mouse is clicked
+	 * Checks if mouse is clicked inside of the button
 	 */
 	public void mouseClicked(int x, int y, int button) {
 		if (this.x - this.width / 2 < x && this.y - this.width / 2 < y && this.x + this.width / 2 > x && this.y + this.height / 2 > y)

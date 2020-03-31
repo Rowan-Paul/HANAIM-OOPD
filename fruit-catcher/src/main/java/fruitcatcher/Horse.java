@@ -13,8 +13,9 @@ import nl.han.ica.oopg.objects.GameObject;
 public class Horse extends FallingObject implements IAlarmListener {
 
 	/**
-	 * Adds horse image
-	 * @param fruitCatcher
+	 * Constructor
+	 * 
+	 * @param fruitCatcher reference to the game
 	 */
 	public Horse(FruitCatcher fruitCatcher) {
 		super(fruitCatcher, "horse.png");
@@ -22,7 +23,7 @@ public class Horse extends FallingObject implements IAlarmListener {
 	
 	/**
 	 * Does action
-	 * in this case: decrease speed
+	 * in this case: decrease player movement speed
 	 */
 	@Override
 	public void doAction() {
@@ -32,8 +33,7 @@ public class Horse extends FallingObject implements IAlarmListener {
 	}
 
 	/**
-	 * Checks if object collides with player,
-	 * does action and deletes object
+	 * DoAction if the horse collided with the player and remove the horse
 	 */
 	@Override
 	public void gameObjectCollisionOccurred(List<GameObject> collidedGameObjects) {

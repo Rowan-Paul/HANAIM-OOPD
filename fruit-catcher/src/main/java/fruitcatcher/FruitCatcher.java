@@ -79,7 +79,7 @@ public class FruitCatcher extends GameEngine {
 	}
 
 	/**
-	 * Add tilemap for collisions
+	 * Adds tilemap for collisions
 	 */
 	private void initializeTileMap() {
 		Sprite floorSprite = new Sprite(FruitCatcher.MEDIA_URL.concat("grass.png"));
@@ -135,8 +135,7 @@ public class FruitCatcher extends GameEngine {
 	}
 	
 	/**
-	 * Resets points and dropped Fruit
-	 * for when starting a new game
+	 * Resets de dashboard scores
 	 */
 	private void resetDashboardScores() {
 		setPoints(0);
@@ -198,8 +197,8 @@ public class FruitCatcher extends GameEngine {
 	}
 
 	/**
-	 * 
-	 * @param amount Amount of points that needs to be added to score
+	 * Increases the points
+	 * @param amount amount of points that needs to be added to score
 	 */
 	public void increasePoints(int amount) {
 		this.points += amount;
@@ -207,8 +206,7 @@ public class FruitCatcher extends GameEngine {
 	}
 
 	/**
-	 * Increases the speed of the Fruit dropping
-	 * and refreshes the dashboard
+	 * Increases the amount of fruits the player has dropped
 	 */
 	public void increaseFruitDropped() {
 		if (!endGame) {
@@ -218,7 +216,7 @@ public class FruitCatcher extends GameEngine {
 	}
 
 	/**
-	 * Initialise persistence for highscore file
+	 * Initialize persistence for highscore file
 	 */
 	private void initializePersistence() {
 		persistence = new FilePersistence("main/java/Fruitcatcher/media/highscore.txt");
@@ -238,7 +236,7 @@ public class FruitCatcher extends GameEngine {
 
 	/**
 	 * Setter for points
-	 * @param points Amount of points that needs to be set
+	 * @param points amount of points that needs to be set
 	 */
 	public void setPoints(int points) {
 		this.points = points;
@@ -246,7 +244,7 @@ public class FruitCatcher extends GameEngine {
 
 	/**
 	 * Sets amount of dropped Fruit
-	 * @param droppedFruit Amount of dropped fruit
+	 * @param droppedFruit amount of dropped fruit
 	 */
 	public void setDroppedFruit(int droppedFruit) {
 		this.droppedFruit = droppedFruit;
@@ -254,7 +252,7 @@ public class FruitCatcher extends GameEngine {
 
 	/**
 	 * Ends the game or restarts it
-	 * @param endGame True when ending game
+	 * @param endGame true when ending game
 	 */
 	public void setEndGame(boolean endGame) {
 		this.endGame = endGame;
