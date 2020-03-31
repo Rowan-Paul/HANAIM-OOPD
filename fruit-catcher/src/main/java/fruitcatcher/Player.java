@@ -17,7 +17,7 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 	private boolean horseHit = false;
 
 	public Player(FruitCatcher fruitCatcher) {
-		super(new Sprite(FruitCatcher.MEDIA_URL.concat("playerx.png")), 3);
+		super(new Sprite(FruitCatcher.MEDIA_URL.concat("player.png")), 3);
 		this.fruitCatcher = fruitCatcher;
 		setCurrentFrameIndex(1);
 		setGravity(0.2f);
