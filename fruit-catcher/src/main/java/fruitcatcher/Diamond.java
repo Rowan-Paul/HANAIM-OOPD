@@ -28,7 +28,7 @@ public class Diamond extends SpriteObject implements ICollidableWithTiles, IColl
 	/**
 	 * Constructor 
 	 * 
-	 * @param fruitCatcher reference to the game
+	 * @param fruitCatcher Reference to the game
 	 */
 	public Diamond(FruitCatcher fruitCatcher) {
 		super(new Sprite(FruitCatcher.MEDIA_URL.concat("diamond.png")));

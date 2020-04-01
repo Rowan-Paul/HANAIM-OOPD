@@ -15,7 +15,7 @@ public class Horse extends FallingObject implements IAlarmListener {
 	/**
 	 * Constructor
 	 * 
-	 * @param fruitCatcher reference to the game
+	 * @param fruitCatcher Reference to the game
 	 */
 	public Horse(FruitCatcher fruitCatcher) {
 		super(fruitCatcher, "horse.png");

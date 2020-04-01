@@ -12,7 +12,7 @@ public class Bomb extends FallingObject {
 	
 	/**
 	 * Constructor 
-	 * @param fruitCatcher reference to the game
+	 * @param fruitCatcher Reference to the game
 	 */
 	public Bomb(FruitCatcher fruitCatcher) {
 		super(fruitCatcher, "bomb.png");

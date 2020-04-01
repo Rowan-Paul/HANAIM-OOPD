@@ -23,7 +23,7 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 	/**
 	 * Constructor
 	 * 
-	 * @param fruitCatcher reference to the game
+	 * @param fruitCatcher Reference to the game
 	 */
 	public Player(FruitCatcher fruitCatcher) {
 		super(new Sprite(FruitCatcher.MEDIA_URL.concat("player.png")), 3);

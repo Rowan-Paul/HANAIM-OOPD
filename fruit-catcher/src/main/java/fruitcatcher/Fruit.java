@@ -13,8 +13,8 @@ public class Fruit extends FallingObject {
 	/**
 	 * Constructor
 	 * 
-	 * @param fruitCatcher reference to the game
-	 * @param fruitObject fruit object reference
+	 * @param fruitCatcher Rreference to the game
+	 * @param fruitObject Fruit object reference
 	 */
 	public Fruit(FruitCatcher fruitCatcher, String fruitObject) {
 		super(fruitCatcher, fruitObject);

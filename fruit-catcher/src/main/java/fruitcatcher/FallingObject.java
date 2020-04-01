@@ -18,7 +18,7 @@ public abstract class FallingObject extends SpriteObject implements ICollidableW
 	/**
 	 * Adds Constructor
 	 * 
-	 * @param fruitCatcher reference to the game
+	 * @param fruitCatcher Reference to the game
 	 * @param object
 	 */
 	public FallingObject(FruitCatcher fruitCatcher, String object) {

@@ -19,8 +19,8 @@ public class DiamondSpawner implements IAlarmListener {
 	/**
 	 * Constructor
 	 * 
-	 * @param fruitCatcher reference to the game
-	 * @param newDiamondWait the amount of you have to wait till a new diamond will spawn in seconds
+	 * @param fruitCatcher Reference to the game
+	 * @param newDiamondWait The amount of you have to wait till a new diamond will spawn in seconds
 	 */
 	public DiamondSpawner(FruitCatcher fruitCatcher, double newDiamondWait) {
 		this.fruitCatcher = fruitCatcher;

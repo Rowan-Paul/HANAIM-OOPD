@@ -19,8 +19,8 @@ public class FallingObjectSpawner implements IAlarmListener {
 	/**
 	 * Constructor
 	 * 
-	 * @param fruitCatcher reference to the game
-	 * @param newObjectWait the amount of you have to wait till a new object will spawn in seconds
+	 * @param fruitCatcher Reference to the game
+	 * @param newObjectWait The amount of you have to wait till a new object will spawn in seconds
 	 */
 	public FallingObjectSpawner(FruitCatcher fruitCatcher, double newObjectWait) {
 		this.fruitCatcher = fruitCatcher;

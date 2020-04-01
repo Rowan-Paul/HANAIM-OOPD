@@ -12,7 +12,7 @@ public class RestartButton extends Button {
 	/**
 	 * Constructor
 	 * 
-	 * @param fruitCatcher reference to the game
+	 * @param fruitCatcher Reference to the game
 	 * @param x The x coordinate of the restart button
 	 * @param y The y coordinate of the restart button
 	 * @param width The width of the restart button

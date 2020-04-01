@@ -15,7 +15,7 @@ public class Train extends FallingObject implements IAlarmListener {
 	/**
 	 * Constructor
 	 * 
-	 * @param fruitCatcher reference to the game
+	 * @param fruitCatcher Reference to the game
 	 */
 	public Train(FruitCatcher fruitCatcher) {
 		super(fruitCatcher, "train.png");

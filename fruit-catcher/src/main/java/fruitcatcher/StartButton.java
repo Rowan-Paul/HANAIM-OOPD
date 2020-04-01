@@ -11,7 +11,7 @@ public class StartButton extends Button {
 	/**
 	 * Constructor
 	 * 
-	 * @param fruitCatcher reference to the game
+	 * @param fruitCatcher Reference to the game
 	 * @param x The x coordinate of the button
 	 * @param y The y coordinate of the button
 	 * @param width The width of the button
