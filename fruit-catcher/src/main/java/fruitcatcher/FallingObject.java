@@ -19,7 +19,7 @@ public abstract class FallingObject extends SpriteObject implements ICollidableW
 	 * Adds Constructor
 	 * 
 	 * @param fruitCatcher Reference to the game
-	 * @param object
+	 * @param object The falling object
 	 */
 	public FallingObject(FruitCatcher fruitCatcher, String object) {
 		super(new Sprite(FruitCatcher.MEDIA_URL.concat(object)));
